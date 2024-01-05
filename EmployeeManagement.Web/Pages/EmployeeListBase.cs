@@ -8,7 +8,7 @@ namespace EmployeeManagement.Web.Pages
     {
         [Inject]
         //can not use constructor as blazor do not accept dependcy injection same way. need to add inject attribute
-        public IEmployeeService  EmployeeService { get; set; } 
+        public IEmployeeService EmployeeService { get; set; }
         public IEnumerable<Employee> Employees { get; set; }
 
         public bool ShowChildFooter { get; set; } = true;
@@ -20,8 +20,22 @@ namespace EmployeeManagement.Web.Pages
 
             //service call
             Employees = (await EmployeeService.GetEmployees()).ToList();
-            
+
             //return base.OnInitializedAsync();   
+        }
+
+        public int SelectedEmployeeCount { get; set; } = 0;
+
+        protected void EmployeeSelectionChanged(bool isSelected)
+        {
+            if (isSelected)
+            {
+                SelectedEmployeeCount++;
+            }
+            else
+            {
+                SelectedEmployeeCount--;
+            }
         }
 
         //private void LoadEmployees()
@@ -77,5 +91,7 @@ namespace EmployeeManagement.Web.Pages
 
         //    Employees = new List<Employee> { e1, e2, e3, e4 };
         ////}
+
+
     }
 }
