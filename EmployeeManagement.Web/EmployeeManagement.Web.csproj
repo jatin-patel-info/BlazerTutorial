@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\EmployeeManagement.Models\EmployeeManagement.Models.csproj" />
+    <ProjectReference Include="..\UmiyaSolutions.Components\UmiyaSolutions.Components.csproj" />
   </ItemGroup>
 
   <ItemGroup>

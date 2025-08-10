@@ -16,7 +16,11 @@ namespace EmployeeManagement.Web
             builder.Services.AddServerSideBlazor();
             builder.Services.AddHttpClient<IEmployeeService, EmployeeService>(client =>
             {
-                client.BaseAddress = new Uri("https://localhost:7016/");
+                client.BaseAddress = new Uri("http://localhost:7016/");
+            });
+            builder.Services.AddHttpClient<IDepartmentService, DepartmentService>(client =>
+            {
+                client.BaseAddress = new Uri("http://localhost:7016/");
             });
 
             var app = builder.Build();
